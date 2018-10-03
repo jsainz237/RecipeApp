@@ -73,7 +73,19 @@ img.recipe-index {
   text-align: center;
 }
 
-.col-centered {
-  float: none;
-  margin: 0 auto;
+.home-icon {
+  margin: 20px 0 0 0;
+  text-align: center;
+
+  .fa-home {
+    color: gray;
+  }
+  .fa-home:hover {
+    color: #4e4e4e;
+  }
+}
+
+#notice {
+  text-align: center;
+  margin: 0;
 }
