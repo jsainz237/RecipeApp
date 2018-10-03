@@ -1,30 +1,40 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Recipes</h1>
+  <h1 style="text-align: center; padding-bottom: 10px;">RECIPES</h1>
 
     <div class="row">
       <% @recipes.each do |recipe| %>
-        <div class="col-md-4">
+        <div class="col-sm-4 top-buffer">
           <div class="recipe-box">
             <% if recipe.image? %>
               <%= link_to (image_tag recipe.image.url, class: "recipe-index"), recipe %>
+            <% else %>
+              <%= link_to (image_tag "cooking.jpg", class: "recipe-index"), recipe %>
             <% end %>
-            <ul>
-              <li><%= recipe.Title %></li>
-              <li><%= recipe.description %></li>
-              <li><%= link_to 'Show', recipe %>
-                  <%= link_to 'Edit', edit_recipe_path(recipe) %> |
-                  <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %> |
-                  <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-            </ul>
+            <%= link_to recipe, :action => 'go' do %>
+              <div class="overlay">
+                <h2><%= recipe.Title %></h2>
+                <p><%= recipe.description %></p>
+              </div>
+            <% end %>
+<!--            <ul>-->
+<!--              <li><%#= recipe.Title %></li>-->
+<!--              <li><%#= recipe.description %></li>-->
+<!--              <li><%#= link_to 'Show', recipe %> |-->
+<!--                  <%#= link_to 'Edit', edit_recipe_path(recipe) %> |-->
+<!--                  <%#= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %> |-->
+<!--                  <%#= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></li>-->
+<!--            </ul>-->
           </div>
         </div>
       <% end %>
     </div> <!--row-->
 
   <br>
+  <div class="newRecipeBtn">
+    <%= link_to 'New Recipe', new_recipe_path, class: "btn btn-primary" %>
+  </div>
 
-  <%= link_to 'New Recipe', new_recipe_path %>
 
 </div>
