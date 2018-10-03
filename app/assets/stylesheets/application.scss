@@ -10,6 +10,7 @@ img.recipe-show {
 
 .top-buffer {
   padding-bottom: 20px;
+  justify-content: center;
 }
 
 .recipe-box {
@@ -41,7 +42,7 @@ img.recipe-show {
     -moz-border-radius: 10px;
     border-radius: 10px;
     h2 {
-      padding-top: 28%;
+      padding-top: 60px;
     }
     p {
 
@@ -70,4 +71,9 @@ img.recipe-index {
 
 .newRecipeBtn {
   text-align: center;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }

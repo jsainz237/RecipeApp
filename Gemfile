@@ -11,6 +11,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'nested_form_fields'
 gem 'carrierwave', '~> 1.0'
 gem 'fog-aws'
+gem 'bootstrap', '~> 4.1.3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
