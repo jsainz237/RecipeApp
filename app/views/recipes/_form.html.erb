@@ -1,5 +1,5 @@
 <%= form_with(model: recipe, local: true) do |form| %>
-  <% if recipe.errors.any? %>
+  <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
@@ -11,45 +11,76 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.file_field :image %>
-
-    <% if @recipe.image? %>
-      <%= image_tag @recipe.image.url, class: "recipe-show" %>
-      <%= form.check_box :remove_image %>
-        Remove Image
-    <% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <% if @recipe.image? %>
+        <div class="show-image">
+          <%= image_tag @recipe.image.url, class: "recipe-show" %>
+          <div class="row">
+            <div class="col-xs-6">
+              <p style="font-size: 15px">
+                <strong>Use different image</strong>
+              </p>
+              <div style="text-align: center">
+                <%= form.file_field :image %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div style="float: right">
+                <p style="font-size: 15px">
+                  <strong>Delete image</strong>
+                </p>
+                <%= form.check_box :remove_image %>
+                Remove Image
+              </div>
+            </div>
+          </div>
+        </div>
+        <% else %>
+          <div>
+            <h1>No Image</h1>
+            <p>Choose image below</p>
+            <%= form.file_field :image, class: "upload-button"%>
+          </div>
+        <% end %>
+    </div>
   </div>
 
-  <div class="form-group">
+
+  <br>
+  <div class="form-group"> <!--title input-->
     <%= form.label :Title %>
-    <%= form.text_field :Title, id: :recipe_title, class: "form-control" %>
+    <%= form.text_field :Title, id: :recipe_title,
+                        class: "form-control", placeholder: "Title" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group"> <!--description input-->
     <%= form.label :description %>
-    <%= form.text_area :description, id: :recipe_description, class: "form-control" %>
+    <%= form.text_area :description, id: :recipe_description,
+                       class: "form-control", placeholder: "Description" %>
   </div>
 
-  <div class="form-group">
-    <%= form.nested_fields_for :ingredients do |ingredient| %>
-      <%= ingredient.text_field :content %>
-      <%= ingredient.remove_nested_fields_link %>
+  <div class="row">
+    <div class="form-group col-xs-6" style="text-align: center"> <!--ingredients-->
+      <%= form.nested_fields_for :ingredients do |ingredient| %>
+        <%= ingredient.text_field :content %>
+        <%= ingredient.remove_nested_fields_link %>
 
-    <% end %>
+      <% end %>
       <%= form.add_nested_fields_link :ingredients %>
-  </div>
+    </div>
 
-  <div class="form-group">
-    <%= form.nested_fields_for :steps do |step| %>
-      <%= step.text_field :direction %>
-      <%= step.remove_nested_fields_link %>
+    <div class="form-group col-xs-6" style="text-align: center"> <!--steps-->
+      <%= form.nested_fields_for :steps do |step| %>
+        <%= step.text_field :direction %>
+        <%= step.remove_nested_fields_link %>
 
-    <% end %>
-    <%= form.add_nested_fields_link :steps %>
-  </div>
+      <% end %>
+      <%= form.add_nested_fields_link :steps %>
+    </div>
+  </div> <!--row-->
 
-  <div class="actions">
-    <%= form.submit %>
+  <div style="text-align: center">
+    <%= form.submit "Finish", class: "btn btn-success"%>
   </div>
 <% end %>

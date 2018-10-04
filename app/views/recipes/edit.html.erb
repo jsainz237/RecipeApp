@@ -1,6 +1,15 @@
-<h1>Editing Recipe</h1>
+<div class="container">
 
-<%= render 'form', recipe: @recipe %>
+  <h1 style="text-align: center">Editing Recipe</h1>
 
-<%= link_to 'Show', @recipe %> |
-<%= link_to 'Back', recipes_path %>
+  <%= render 'form', recipe: @recipe %>
+
+  <div style="text-align: center">
+    <hr style="width: 70px; border-color: #4e4e4e; margin-top: 5px; margin-bottom: 2px">
+    <hr style="width: 70px; border-color: #4e4e4e; margin-top: 1px; margin-bottom: 5px">
+    <%= link_to 'Cancel', @recipe, class: "btn btn-danger" %>
+    <%= link_to 'Home', recipes_path, class: "btn btn-primary" %>
+  </div>
+
+</div>
+

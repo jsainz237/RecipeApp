@@ -1,35 +1,61 @@
-<p id="notice"><%= notice %></p>
-  <% if @recipe.image? %>
-    <%= image_tag @recipe.image.url, class: "recipe-show" %>
-  <% end %>
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.Title %>
-</p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+  <div style="margin-top: 10px">
+    <p style="font-size: 30px; letter-spacing: 1px; text-align: center; margin: 0">
+      <strong><%= @recipe.Title %></strong>
+    </p>
 
-<h3>Ingredients</h3>
-  <ul>
-  <% for @ingredient in @recipe.ingredients %>
+    <p style="font-size: 15px; text-align: center; margin: 0 0 15px 0">
+      <%= @recipe.description %>
+    </p>
+  </div>
 
-      <li><%= @ingredient.content %></li>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="show-image">
+        <% if @recipe.image? %>
+          <%= image_tag @recipe.image.url, class: "recipe-show" %>
+        <% else %>
+          <%= link_to (image_tag "cooking.jpg", class: "default-recipe-show"), @recipe %>
+          <div class="show-overlay">
+            <h1>Edit to choose a new image</h1>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <% end %>
-  </ul>
+  <div class="row">
+    <div class="col-xs-3">
+      <h3>Ingredients</h3>
+    </div>
+    <div class="col-xs-3" style="margin-top: 20px">
+      <ul>
+        <% for @ingredient in @recipe.ingredients %>
 
-<h3>Steps</h3>
-  <ol>
-  <% for @step in @recipe.steps %>
+          <li><%= @ingredient.content %></li>
 
-      <li><%= @step.direction %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-3">
+      <h3>Steps</h3>
+    </div>
+    <div class="col-xs-3" style="margin-top: 20px">
+      <ol>
+        <% for @step in @recipe.steps %>
 
-  <% end %>
-  </ol>
+          <li><%= @step.direction %></li>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %> |
-<%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </ol>
+    </div>
+  </div> <!--row-->
+
+  <div style="text-align: center">
+    <%= link_to 'Back', recipes_path, class: "btn btn-success"%> ||
+    <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-info" %> ||
+    <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  </div>
+</div>

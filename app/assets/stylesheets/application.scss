@@ -3,9 +3,13 @@
 
 $overlayBg: rgba(0, 0, 0, 0.6);
 
-img.recipe-show {
-  width: 400px;
-  height: auto;
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #ffffff, #eeeeee, #dddddd, #cccccc, #bbbbbb);
 }
 
 .top-buffer {
@@ -87,5 +91,46 @@ img.recipe-index {
 
 #notice {
   text-align: center;
+  margin: 0;
+}
+
+.show-image {
+  height: 400px;
+  position: relative;
+  border-radius: 10px;
+
+  img.recipe-show {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  img.default-recipe-show {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .show-overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border-radius: 10px;
+
+    h1 {
+      padding-top: 165px;
+    }
+
+  }
+}
+
+.upload-button {
   margin: 0;
 }
