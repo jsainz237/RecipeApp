@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-  background-image: linear-gradient(to bottom, #ffffff, #eeeeee, #dddddd, #cccccc, #bbbbbb);
+  background-image: linear-gradient(to bottom, #e1fcfd, #dbf6ff, #e0edff, #ece2fd, #f9d8ec);
 }
 
 .top-buffer {
@@ -155,4 +155,21 @@ img.recipe-index {
   width: 110px;
   font-size: 20px;
 }
+
+.btn-responsive-show {
+  height: 40px;
+  width: 110px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  .btn-responsive-show {
+    height: 40px;
+    width: 30%;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+}
+
 
