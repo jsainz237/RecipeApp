@@ -135,11 +135,24 @@ img.recipe-index {
   margin: 0;
 }
 
-@media (max-width: 992px) {
-  .btn-responsive {
-    height: 50px;
-    width: 50%;
-    font-size: 25px;
-    margin-bottom: 20px;
-  }
+
+.btn-responsive-lg {
+  height: 50px;
+  width: 50%;
+  font-size: 25px;
+  margin-bottom: 20px;
 }
+
+.btn-responsive-sm {
+   height: 40px;
+   width: 130px;
+   font-size: 20px;
+   margin-bottom: 15px;
+ }
+
+.btn-responsive-form {
+  height: 40px;
+  width: 130px;
+  font-size: 20px;
+}
+
