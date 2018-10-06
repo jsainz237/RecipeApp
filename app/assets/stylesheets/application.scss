@@ -134,3 +134,12 @@ img.recipe-index {
 .upload-button {
   margin: 0;
 }
+
+@media (max-width: 992px) {
+  .btn-responsive {
+    height: 50px;
+    width: 50%;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}
