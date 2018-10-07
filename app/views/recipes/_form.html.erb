@@ -64,7 +64,7 @@
   <div class="row">
     <div class="form-group col-xs-6 ingredients" style="text-align: center"> <!--ingredients-->
       <%= form.simple_fields_for :ingredients do |ingredient| %>
-        <%= render 'ingredient_fields', form: ingredient %>
+        <%= render 'ingredient_fields', f: ingredient %>
         <%#= ingredient.text_field :content %>
         <%#= ingredient.remove_nested_fields_link %>
         <%#= link_to_remove_association('X', form) %>
